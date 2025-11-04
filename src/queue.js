@@ -29,8 +29,21 @@ class Queue {
   }
 
   dequeue() {
-    // Remove line below and write your code here
-    throw new NotImplementedError('Not implemented');
+    if (!this.head) {
+      return undefined;
+    } else if (!this.head.next) {
+      this.head = null;
+      return this.head;
+    } else {
+      let next = this.head;
+      let prev = null;
+      while(next.next) {
+        prev = next;
+        next = next.next;       
+      }
+      prev.next = null;
+      return next.value;
+    }
   }
 }
 
